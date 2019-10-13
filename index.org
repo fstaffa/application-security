@@ -8,11 +8,11 @@
 #+REVEAL_ROOT: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/
 
 
+* Bezpečnost
+** Developer vs Security
 * Práce a rizikem 
 ** Co se může stát nejhoršího? 
 ** Bezpečnost na úkor uživatelského komfortu je na úkor bezpečnosti
-* Bezpečnost
-Developer vs Security
 * Threat model 
 ** Náhodný útok na server
 - port scan
