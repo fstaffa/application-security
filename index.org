@@ -38,8 +38,8 @@ Developer vs Security
 ** Bastion host
 ** Docker
 ** Access logging
-** [[./images/managed.png]]
 ** [[./images/less-managed.png]]
+** [[./images/managed.png]]
 ** Kontroly
 - [[https://cloudsploit.com]]
 - https://www.ssllabs.com/ssltest/
