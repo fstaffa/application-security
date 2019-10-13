@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Application Security</title>
+<meta name="author" content="Filip Štaffa"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/moon.css" id="theme"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">Application Security</h1><h2 class="author">Filip Štaffa</h2><h2 class="email"><a href="mailto:filip.staffa@gmail.com">filip.staffa@gmail.com</a></h2>
+</section>
+
+
+<section>
+<section id="slide-org001b59a">
+<h2 id="org001b59a">Práce a rizikem</h2>
+<div class="outline-text-2" id="text-org001b59a">
+</div>
+</section>
+<section id="slide-orgeff86c9">
+<h3 id="orgeff86c9">Co se může stát nejhoršího?</h3>
+</section>
+<section id="slide-org8d0fc61">
+<h3 id="org8d0fc61">Bezpečnost na úkor uživatelského komfortu je na úkor bezpečnosti</h3>
+</section>
+</section>
+<section>
+<section id="slide-org25c5106">
+<h2 id="org25c5106">Bezpečnost</h2>
+<p>
+Developer vs Security
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org2434fb7">
+<h2 id="org2434fb7">Threat model</h2>
+<div class="outline-text-2" id="text-org2434fb7">
+</div>
+</section>
+<section id="slide-org9620487">
+<h3 id="org9620487">Náhodný útok na server</h3>
+<ul>
+<li>port scan</li>
+<li>directory listing</li>
+<li>defaultní hesla</li>
+
+</ul>
+</section>
+<section id="slide-orgc8d7386">
+<h3 id="orgc8d7386">Náhodný útok na klienta</h3>
+<ul>
+<li>TLS</li>
+<li>phishing</li>
+
+</ul>
+</section>
+<section id="slide-org44ae871">
+<h3 id="org44ae871">Cílený útok</h3>
+</section>
+</section>
+<section>
+<section id="slide-orga4b931b">
+<h2 id="orga4b931b">Infrastruktura</h2>
+<div class="outline-text-2" id="text-orga4b931b">
+</div>
+</section>
+<section id="slide-orgf9b931e">
+<h3 id="orgf9b931e">Zero trust</h3>
+</section>
+<section id="slide-org28c518a">
+<h3 id="org28c518a">Firewall</h3>
+</section>
+<section id="slide-orgd93d303">
+<h3 id="orgd93d303">Devops</h3>
+</section>
+<section id="slide-org96d47a2">
+<h3 id="org96d47a2">Automatizace</h3>
+</section>
+<section id="slide-orgeae9638">
+<h3 id="orgeae9638">Immutable</h3>
+</section>
+<section id="slide-orgf513e91">
+<h3 id="orgf513e91">Build machine</h3>
+<ul>
+<li>Minalni práva - vytvořit docker image, deploynout, spustit db migrace</li>
+<li>Buildy v docker containeru</li>
+
+</ul>
+</section>
+<section id="slide-org3349df9">
+<h3 id="org3349df9">Bastion host</h3>
+</section>
+<section id="slide-org3d27d90">
+<h3 id="org3d27d90">Docker</h3>
+</section>
+<section id="slide-org961c6ef">
+<h3 id="org961c6ef"><img src="./images/managed.png" alt="managed.png" /></h3>
+</section>
+<section id="slide-org549b9dd">
+<h3 id="org549b9dd"></h3>
+</section>
+</section>
+<section>
+<section id="slide-orgfe58d75">
+<h2 id="orgfe58d75">Software</h2>
+<div class="outline-text-2" id="text-orgfe58d75">
+</div>
+</section>
+<section id="slide-org6acf62a">
+<h3 id="org6acf62a">Updatování závislostí</h3>
+<ul>
+<li>Nodejs</li>
+<li>Golang - lepší malá kopie než malá závislost</li>
+
+</ul>
+<p>
+Agresivní Patche místo uvažování co je potřeba 
+</p>
+</section>
+<section id="slide-orgabf3026">
+<h3 id="orgabf3026">Chyba v autorizaci</h3>
+</section>
+<section id="slide-orgdd08a08">
+<h3 id="orgdd08a08">Problematické jazyky</h3>
+</section>
+</section>
+<section>
+<section id="slide-orge289c3b">
+<h2 id="orge289c3b">Data</h2>
+<div class="outline-text-2" id="text-orge289c3b">
+</div>
+</section>
+<section id="slide-org3836d8e">
+<h3 id="org3836d8e">GDPR</h3>
+</section>
+<section id="slide-org169031a">
+<h3 id="org169031a">Ukládat pouze nutné minimum</h3>
+</section>
+</section>
+<section>
+<section id="slide-org7168c2a">
+<h2 id="org7168c2a">OWASP</h2>
+<p>
+<a href="https://blog.sucuri.net/2018/10/owasp-top-10-security-risks-part-i.html">https://blog.sucuri.net/2018/10/owasp-top-10-security-risks-part-i.html</a>
+</p>
+</section>
+<section id="slide-org87dbe50">
+<h3 id="org87dbe50">Injection</h3>
+</section>
+<section id="slide-org264c948">
+<h3 id="org264c948">Broken Authentication</h3>
+</section>
+<section id="slide-org12caff6">
+<h3 id="org12caff6">Sensitive data exposure</h3>
+</section>
+<section id="slide-org2394744">
+<h3 id="org2394744">XML External Entities (XXE)</h3>
+</section>
+<section id="slide-org93e7126">
+<h3 id="org93e7126">Broken Access control</h3>
+</section>
+<section id="slide-org6893acd">
+<h3 id="org6893acd">Security misconfigurations</h3>
+</section>
+<section id="slide-org68d4fde">
+<h3 id="org68d4fde">Cross Site Scripting (XSS)</h3>
+</section>
+<section id="slide-org856f84b">
+<h3 id="org856f84b">Insecure Deserialization</h3>
+</section>
+<section id="slide-org74ce84e">
+<h3 id="org74ce84e">Using Components with known vulnerabilities</h3>
+</section>
+<section id="slide-org897fbef">
+<h3 id="org897fbef">Insufficient logging and monitoring</h3>
+</section>
+</section>
+<section>
+<section id="slide-org3f5602f">
+<h2 id="org3f5602f">Pentesting</h2>
+<div class="outline-text-2" id="text-org3f5602f">
+</div>
+</section>
+<section id="slide-org6a57026">
+<h3 id="org6a57026">Kali linux</h3>
+<p>
+Webové aplikace 
+Tls 
+Load balancer - aplikační, white listing pouze validních rout
+</p>
+
+<p>
+Cve
+</p>
+
+<p>
+Rotace hesel 
+</p>
+
+<p>
+Užitečné kontroly
+Cloudsploit
+SSL checker
+Header checker
+</p>
+
+<p>
+Dobré návyky 
+Managované komponenty - hosted static content, e
+G. Cloudfront 
+</p>
+
+<p>
+Oauth místo vlastního user managementu 
+Řeší problém s hesly / jejich rotaci 
+2 factor authentication 
+</p>
+
+<p>
+Access logging - load balancer, cdn,&#x2026; 
+</p>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/head.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'convex', // see README of reveal.js for options
+transitionSpeed: 'default',
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+</script>
+</body>
+</html>

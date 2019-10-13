@@ -1,0 +1,74 @@
+#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/
+#+Title: Application Security
+#+Author: Filip Štaffa
+#+Email: filip.staffa@gmail.com
+#+OPTIONS: email:true timestamp:nil
+#+OPTIONS: toc:nil
+#+OPTIONS: num:nil
+#+REVEAL_ROOT: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/
+
+
+* Práce a rizikem 
+** Co se může stát nejhoršího? 
+** Bezpečnost na úkor uživatelského komfortu je na úkor bezpečnosti
+* Bezpečnost
+Developer vs Security
+* Threat model 
+** Náhodný útok na server
+- port scan
+- directory listing
+- defaultní hesla
+** Náhodný útok na klienta
+- TLS
+- phishing
+** Cílený útok
+* Infrastruktura
+** Zero trust
+** Static hosting
+** Cloud
+** Firewall
+** Devops
+** Automatizace
+** Immutable
+** Secret management
+- rotace
+** Build machine
+- Minalni práva - vytvořit docker image, deploynout, spustit db migrace
+- Buildy v docker containeru
+** Bastion host
+** Docker
+** Access logging
+** [[./images/managed.png]]
+** [[./images/less-managed.png]]
+** Kontroly
+- [[https://cloudsploit.com]]
+- https://www.ssllabs.com/ssltest/
+- [[https://securityheaders.com/]]
+* Software
+** Updatování závislostí
+- agresivní
+** Nodejs
+** Golang
+ - lepší malá kopie než malá závislost
+** Problematické jazyky
+- C
+- Javascript
+** Autentizace
+** Chyba v autorizaci
+* Data 
+** GDPR
+** Ukládat pouze nutné minimum
+* OWASP
+[[https://blog.sucuri.net/2018/10/owasp-top-10-security-risks-part-i.html]]
+** Injection
+** Broken Authentication
+** Sensitive data exposure
+** XML External Entities (XXE)
+** Broken Access control
+** Security misconfigurations
+** Cross Site Scripting (XSS)
+** Insecure Deserialization
+** Using Components with known vulnerabilities
+** Insufficient logging and monitoring
+* Pentesting
+** Kali linux
